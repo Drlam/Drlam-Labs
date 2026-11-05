@@ -14,12 +14,18 @@ class PhysicalProduct(Product):
         super().display_information()
         print(f"Weight: {self.__weight:.2f} kg")
 
+    # Fulfilment information for physical products
+    def get_fulfilment_info(self):
+        return f"{self.get_name()} (Product ID: {self.get_product_id()}) requires physical shipping."
+
 
 # Testing to ensure that the PhysicalProduct class is working correctly
 if __name__ == "__main__":
-    physical1 = PhysicalProduct("P001", "Laptop", 1500.99, 10, 3.67)
-    physical2 = PhysicalProduct("P002", "Smartphone", 499.99, 20, 0.2)
-    physical1.display_information()
-    physical2.display_information()
-    print(f"Weight of {physical1.get_name()}: {physical1.get_weight():.2f} kg")
-    print(f"Weight of {physical2.get_name()}: {physical2.get_weight():.2f} kg")
+    physicalProduct1 = PhysicalProduct("P001", "Laptop", 1500.99, 10, 3.67)
+    physicalProduct2 = PhysicalProduct("P002", "Smartphone", 499.99, 20, 0.2)
+    physicalProduct1.display_information()
+    physicalProduct2.display_information()
+    print(physicalProduct1.get_fulfilment_info())
+    print(physicalProduct2.get_fulfilment_info())
+    print(f"Weight of {physicalProduct1.get_name()}: {physicalProduct1.get_weight():.2f} kg")
+    print(f"Weight of {physicalProduct2.get_name()}: {physicalProduct2.get_weight():.2f} kg")

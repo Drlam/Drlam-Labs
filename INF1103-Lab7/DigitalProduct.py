@@ -14,12 +14,18 @@ class DigitalProduct(Product):
         super().display_information()
         print(f"Download Size: {self.__download_size:.2f} MB")
 
+    # Fulfilment information for digital products
+    def get_fulfilment_info(self):
+            return f"{self.get_name()} (Product ID: {self.get_product_id()}) is delivered digitally."
+
 
 # Testing to ensure that the DigitalProduct class is working correctly
 if __name__ == "__main__":
-    digital1 = DigitalProduct("P003", "TV", 2999, 2, 150.17)
-    digital2 = DigitalProduct("P004", "Earpiece", 10.9, 40, 15)
-    digital1.display_information()
-    digital2.display_information()
-    print(f"Download Size of {digital1.get_name()}: {digital1.get_download_size():.2f} MB")
-    print(f"Download Size of {digital2.get_name()}: {digital2.get_download_size():.2f} MB")
+    digitalProduct1 = DigitalProduct("P003", "TV", 2999, 2, 150.17)
+    digitalProduct2 = DigitalProduct("P004", "Earpiece", 10.9, 40, 15)
+    digitalProduct1.display_information()
+    digitalProduct2.display_information()
+    print(digitalProduct1.get_fulfilment_info())
+    print(digitalProduct2.get_fulfilment_info())
+    print(f"Download Size of {digitalProduct1.get_name()}: {digitalProduct1.get_download_size():.2f} MB")
+    print(f"Download Size of {digitalProduct2.get_name()}: {digitalProduct2.get_download_size():.2f} MB")
