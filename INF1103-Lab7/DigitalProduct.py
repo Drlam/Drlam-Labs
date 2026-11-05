@@ -21,8 +21,8 @@ class DigitalProduct(Product):
 
 # Testing to ensure that the DigitalProduct class is working correctly
 if __name__ == "__main__":
-    digitalProduct1 = DigitalProduct("P003", "TV", 2999, 2, 150.17)
-    digitalProduct2 = DigitalProduct("P004", "Earpiece", 10.9, 40, 15)
+    digitalProduct1 = DigitalProduct("D003", "E-book", 29.99, 2, 300.17)
+    digitalProduct2 = DigitalProduct("D004", "Software", 49.99, 5, 600.28)
     digitalProduct1.display_information()
     digitalProduct2.display_information()
     print(digitalProduct1.get_fulfilment_info())

@@ -1,6 +1,5 @@
 from abc import ABC, abstractmethod 
 
-# Product Class
 class Product(ABC):
     def __init__(self, product_id, name, price, stock):
         self.__product_id = product_id

@@ -1,15 +1,17 @@
 from PhysicalProduct import PhysicalProduct
 from DigitalProduct import DigitalProduct
-from Product import Product
 
-physicalProduct = PhysicalProduct("P001", "Laptop", 1500.99, 10, 3.67)
-digitalProduct = DigitalProduct("P002", "TV", 2999, 2, 150.17)
-physicalProduct.display_information()
+physicalProduct1 = PhysicalProduct("P001", "Laptop", 1500.99, 10, 5.56)
+physicalProduct2 = PhysicalProduct("P002", "Smartphone", 490.00, 20, 0.5)
+digitalProduct = DigitalProduct("D003", "E-book", 29.99, 2, 300.17)
+physicalProduct1.display_information()
+physicalProduct2.display_information()
 print()
 digitalProduct.display_information()
 print()
-physicalProduct.get_fulfilment_info()
-digitalProduct.get_fulfilment_info()
-# This will fail as Product is an abstract class and cannot be instantiated directly.
-failedProduct = Product("P005", "Gloves", 12.50, 50)
-print(failedProduct.get_fulfilment_info())
+print(physicalProduct1.get_fulfilment_info())
+print(physicalProduct2.get_fulfilment_info())
+print(digitalProduct.get_fulfilment_info())
+# Test calculate_shipping_cost method for PhysicalProduct
+print(f"Shipping cost for {physicalProduct1.get_name()}: ${physicalProduct1.calculate_shipping_cost():.2f}")
+print(f"Shipping cost for {physicalProduct2.get_name()}: ${physicalProduct2.calculate_shipping_cost():.2f}")
