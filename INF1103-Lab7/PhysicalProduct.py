@@ -19,9 +19,9 @@ class PhysicalProduct(Product, CanBeShipped):
     def get_fulfilment_info(self):
         return f"{self.get_name()} (Product ID: {self.get_product_id()}) requires physical shipping."
 
-    # Calculate shipping cost based on weight and a base shipment cost
+    # Calculate shipping cost based on weight and a base shipping cost
     def calculate_shipping_cost(self):
-        base_shipment_cost = 5.00
+        base_shipping_cost = 5.00
         cost_per_kg = 1.00
-        total_shipping_cost = base_shipment_cost + (self.__weight * cost_per_kg)
+        total_shipping_cost = base_shipping_cost + (self.__weight * cost_per_kg)
         return total_shipping_cost

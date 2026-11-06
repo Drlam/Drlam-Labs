@@ -1,7 +1,7 @@
-from abc import ABC, abstractmethod 
+from abc import ABC, abstractmethod
 
 class Product(ABC):
-    def __init__(self, product_id:str, name: str, price: float, stock: int):
+    def __init__(self, product_id: str, name: str, price: float, stock: int):
         self.__product_id = product_id
         self.__name = name
         self.__price = price
@@ -33,7 +33,7 @@ class Product(ABC):
         print(f"Product ID: {self.__product_id}, Name: {self.__name}, "
               f"Price: ${self.__price:.2f}, Stock: {self.__stock}")
 
-    # Abstract method to be implemented to PhysicalProduct and DigitalProduct classes
+    # Abstract method to be implemented by PhysicalProduct and DigitalProduct classes
     @abstractmethod
     def get_fulfilment_info(self):
         pass

@@ -214,7 +214,7 @@ def menu_options(option, inventory):
 def main():
     print("INVENTORY MANAGEMENT SYSTEM")
     inventory = load_inventory()
- 
+
     running = True
     while running:
         print("\nMENU")
@@ -224,10 +224,10 @@ def main():
         print("4. Search Product")
         print("5. Save Inventory")
         print("6. Exit\n")
- 
+
         option = input("Enter option: ").strip()
         running = menu_options(option, inventory)
- 
- 
+
+
 if __name__ == "__main__":
     main()
