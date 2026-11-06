@@ -1,0 +1,16 @@
+{
+    "P001": {
+        "Type": "physical",
+        "Name": "Laptop",
+        "Price": 1500.99,
+        "Stock": 16,
+        "Weight": 5.56
+    },
+    "D001": {
+        "Type": "digital",
+        "Name": "E-book",
+        "Price": 20.9,
+        "Stock": 2,
+        "Download Size": 300.17
+    }
+}
