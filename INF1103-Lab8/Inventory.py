@@ -9,7 +9,7 @@ class Inventory:
         for existing_product in self.__products:
             if existing_product.get_product_id() == product.get_product_id():
                 return False
-            
+
         self.__products.append(product)
         return True
 

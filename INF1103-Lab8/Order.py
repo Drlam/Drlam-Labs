@@ -2,7 +2,7 @@ from OrderLine import OrderLine
 from Product import Product
 
 class Order:
-    def __init__(self, order_id: str):
+    def __init__(self, order_id: str) -> None:
         self.order_id: str = order_id
         self.order_lines: list[OrderLine] = []
 
@@ -21,7 +21,7 @@ class Order:
 
     # Calculate total value of the order by asking OrderLine to calculate subtotal
     def calculate_total(self) -> float:
-        total = 0.0
+        total: float = 0.0
         for order_line in self.order_lines:
             total += order_line.calculate_subtotal()
         return total
