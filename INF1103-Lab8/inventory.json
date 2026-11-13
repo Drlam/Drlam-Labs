@@ -1,0 +1,26 @@
+{
+    "D001": {
+        "Type": "digital",
+        "Name": "E-Book",
+        "Price": 17.9,
+        "Stock": 50,
+        "Supplier": {
+            "Supplier ID": 2,
+            "Name": "Bookshop",
+            "Contact Email": "efg@gmail.com"
+        },
+        "Download Size": 300.17
+    },
+    "P001": {
+        "Type": "physical",
+        "Name": "Laptop",
+        "Price": 1500.0,
+        "Stock": 25,
+        "Supplier": {
+            "Supplier ID": 3,
+            "Name": "Tech Pte Ltd",
+            "Contact Email": "abc@gmail.com"
+        },
+        "Weight": 5.56
+    }
+}
