@@ -6,6 +6,9 @@ from BulkDiscount import BulkDiscount
 from PercentageDiscount import PercentageDiscount
 from StudentDiscount import StudentDiscount
 from ProductFactory import ProductFactory
+from OrderLine import OrderLine
+from inventory_manager import get_positive_float, load_products
+from Inventory import Inventory
 
 
 # Create a new Supplier for testing
@@ -92,18 +95,87 @@ print(
     f"${student_order.calculate_total():.2f}"
 )
 
+# ==========================================
+# TEST 3: VALIDATION
+# ==========================================
 
-# Test unknown product type without exception handling
-print("\nTesting unknown product type without try/except:")
+print("\n========== VALIDATION TESTS ==========")
 
-ProductFactory.create(
-    "service",
-    "TEST003",
-    "Installation",
-    30.00,
-    5,
-    supplier,
-    0
-)
+# TEST 1: Product price must be greater than zero
+try:
+    ProductFactory.create(
+        "physical", "TEST101", "Invalid Price Product",
+        0, 10, supplier, 1.0
+    )
+except ValueError as error:
+    print("Product price validation test passed:", error)
+else:
+    raise AssertionError("Expected ValueError for zero product price.")
 
-print("Testing the code")
+
+# TEST 2: Product stock cannot be negative
+try:
+    ProductFactory.create(
+        "physical", "TEST102", "Invalid Stock Product",
+        25.00, -5, supplier, 1.0
+    )
+except ValueError as error:
+    print("Physical product stock validation test passed:", error)
+else:
+    raise AssertionError("Expected ValueError for negative product stock.")
+
+
+# TEST 3: DigitalProduct must follow Product stock validation
+try:
+    ProductFactory.create(
+        "digital", "TEST103", "Invalid Digital Product",
+        9.90, -5, supplier, 25.0
+    )
+except ValueError as error:
+    print("Digital product stock validation test passed:", error)
+else:
+    raise AssertionError("Expected ValueError for negative digital product stock.")
+
+
+# TEST 4: OrderLine quantity must be greater than zero
+try:
+    OrderLine(product, 0)
+except ValueError as error:
+    print("OrderLine quantity validation test passed:", error)
+else:
+    raise AssertionError("Expected ValueError for zero order quantity.")
+
+# ==========================================
+# TEST 4: POSITIVE PRICE INPUT
+# ==========================================
+
+print("\n========== POSITIVE PRICE INPUT TEST ==========")
+
+# Test invalid input followed by a valid positive price
+#price = get_positive_float("Enter Price: ")
+
+#print(f"Returned price: {price:.2f}")
+
+# ==========================================
+# TEST 5: CSV PRODUCT LOADING
+# ==========================================
+
+print("\n========== CSV PRODUCT LOADING TEST ==========")
+
+# Create a fresh Inventory for testing.
+csv_inventory = Inventory()
+
+# Load products from the CSV file.
+load_products("products.csv", csv_inventory, supplier)
+
+# ==========================================
+# TEST 5: CSV PRODUCT LOADING
+# ==========================================
+
+print("\n========== CSV PRODUCT LOADING TEST ==========")
+
+# Create a fresh Inventory for testing.
+csv_inventory = Inventory()
+
+# Load products from the CSV file.
+load_products("products2.csv", csv_inventory, supplier)

@@ -1,0 +1,3 @@
+product_type,product_id,name,price,stock_quantity,supplier_id,supplier_name,supplier_email,weight,download_size
+physical,P001,Laptop,1500.0,15,1,Tech,abc@gmail.com,5.56,
+digital,D001,Ebook,17.99,60,2,bookshop,xyz@gmail.com,,300.17
